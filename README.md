@@ -1,4 +1,4 @@
-# Embedded AI Master's Thesis
+# Master's Thesis in the field of Embedded Machine Learning
 This repository contains the LaTeX project for `Acoustic Information for Multisensory Occupancy Detection using Machine Learning` Master's thesis. A complete PDF version of the thesis can be found under the `_output` directory or through the official Aalto University publication database. ([link](https://aaltodoc.aalto.fi/items/478c9388-68fe-4697-b3f6-768f290d0a3a), [link2](https://urn.fi/URN:NBN:fi:aalto-2021121910859))
 
 
