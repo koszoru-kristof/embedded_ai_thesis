@@ -1,0 +1,123 @@
+\chapter{Introduction}
+\label{chapter:intro}
+% 2-5 pages
+%  It usually has two subsections with titles Problem
+% statement and Structure of the Thesis, as follows next.
+
+
+% Introduction tells the motivation, scope, goal and the outcome of the work. Anyone should be able to understand it. The preferred order of writing your master's thesis is about the same as the outline of the thesis: you first discover your problem and write about that, then you find out what methods you should use and write about that.  Then you do your implementation, and document that, and so on.  However, the abstract and introduction are often easiest to write last.  This is because these really cover the entire thesis, and there is no way you could know what to put in your abstract before you have actually done your implementation and evaluation. This means that you have to rewrite them in the end of your work.
+
+% TOM COMMENTS:
+%  - First paragraph is only one sentence, need a follow-up, for example highlighting that room-lighting uses a considerable amount of energy, which can be improved if lights were off when nobody is there.
+%  - The intro overall is now nicely readable for people with an engineering background. I would recommend making this readable for an even wider range of people; My usual recommendation to use as a mental image, is that your parents should be able to understand this section. This applies primarily to the first page of the intro, the rest can be directed to people with an engineering background.
+
+% Advanced level tuning of intro:
+
+% 1. 
+% Think about the overall structure, by labeling each paragraph, for example;
+% - First paragraph "Energy consumption"
+% - Second paragraph "Building automation"
+% - Third "Occupancy detection"
+% and so on. 
+
+% Then make each paragraph balanced, in size and depth, with respect to the overall structure.
+
+% 2.
+% Finally, think about contrasts: An effective way to trigger reader interest is to alternate between good things and bad things, first slowly (long sections of only good and only bad), but then contrasting more and more frequently, until the climax where your fantastic solution to room occupancy detection wins the world. After the climax, the text is only about good things.
+
+% If you manage to combine the two, balanced structure and increasing speed of contrasts, then that would elevate the literary quality from student work to a work of art.
+
+% PETERRR
+% too many "since" replace with as or for
+% comma before too -> , too.
+
+% Energy need increases
+% Buildings use a lot of energy
+In a world of rising energy needs and excessive usage of natural resources, the need for energy conservation has become ever more important lately. Global urbanization and population growth are clear trends of the twenty-first century. The proportion of people living in cities are increasing steadily. Residential and commercial buildings consume up to 40\% of world electricity \cite{perez2008_energyBuilding} according to IEA (International Energy Agency) statistics.
+
+% Building automation
+\begin{sloppypar}
+Building Automation technologies have risen in popularity after the widespread use of large indoor offices and factories with the premise of cost reduction and later with increased comfort and well-being of workers. Simple control systems were used to regulate the properties of the building based on a predefined schedule only, which allowed only a limited amount of energy savings since they completely ignored the presence of people.
+% https://www.zeroscience.mk/files/ioybms_gk_2019.pdf
+\end{sloppypar}
+
+% Occupancy measurements
+Modern, flexible work arrangement policies raised new demand for more adaptive Building Management Systems to control building equipment that reacts quickly to space usage changes. Indoor room occupancy detection is an actively researched area, previous studies mostly focused on single sensor-based data analysis and future forecasting predictions to improve reliability and applicability to different scenarios. Most commonly used input data sources include passive infrared (PIR), Camera, Sound, Radar, CO\textsubscript{2}, and other Environmental sensors \cite{build_occ_det_tech_review}. Previous research has demonstrated the importance of occupancy data to reduce excess energy use \cite{ZHANG2018build_energy_occ, NGUYEN2013build_energy_occ}.
+% https://journals.sagepub.com/doi/pdf/10.1177/1420326X19875621?casa_token=6d_4bFUbzTQAAAAA:xq__QTtH6Y5aHHFRAkTZ66BNJuSh65vo1PjxcRQSdaC1Io7lsssF9LpFxIluYbMs9xMxLD47IA
+% 2 - A comprehensive review of approaches to building occupancy detection \cite{build_occ_det_tech_review}
+
+% Sound information for occupancy, multisensor
+Single sensor-based occupancy solutions carry the limitations of the chosen sensor inherently due to its physical properties. Some of them require a direct line of sight, sensitive to external noises, intrusive or non-intrusive in their operation. Research shows that the combination of various sensors can be beneficial for increasing prediction accuracy \cite{UCI_occ_dataset_pred, UCI_autoencoder, UCI_nn_real_time, Yang12multisensor_aud}. Our study will focus on the combination of PIR, as the most often deployed sensor in Building Automation, and sound sensors for enhancement.
+
+% Solutions
+% Machine learning and IoT
+Machine Learning has been recently introduced to extract high-level information from sensor data streams. Classical machine learning and more advanced Deep Learning methods provide a universal platform for classification tasks given a large enough dataset for training. According to the traditional machine learning based Internet of Things (IoT) approach, the computationally heavy calculations are performed in a cloud service while the IoT devices only stream the raw sensor measurements.
+
+%TODO: Internet of things, increasing trend in edge computation... \cite{wang2020fannonmcu}
+% https://arxiv.org/pdf/1911.03314.pdf
+
+% Cloud based solutions
+However, the acceptance of cloud-based innovative Building Management solutions falls behind, due to privacy concerns and data bandwidth limitations mainly \cite{yu2016iot}. Moreover, from a user experience perspective, lighting automation solutions are expected to respond instantaneously to environmental changes or movements of people leaving no room for top-down cloud-based control with its inherent network latency.
+
+% Embedded computation only
+Mitigating the aforementioned limitations, the new trend is to allocate as much local data processing as possible creating the basis of smart sensor platforms or Edge Computing. According to this paradigm, the machine learning inference is pushed towards the edge of the network facilitating mostly on ARM-based microcontrollers. The research field related to embedded machine learning is relatively new, but some applications in production can already be spotted and expected to grow with the microcontroller hardware performance and software library support.
+
+% My solution, goal of the thesis
+This thesis aims to explore the possibilities of machine learning techniques in an embedded environment for occupancy detection in the current industrial setting. It provides a thorough analysis of the problem complexity and offers an effective real-time feature extraction and classification method for spotting human presence in sound and PIR sensor streams. 
+
+
+\section{Problem statement}
+
+The PIR (Passive Infrared) sensor is the most common device used for room occupancy detection in office environments, given its simple structure, low cost, and easy integration properties. It works satisfactorily mainly in motion detection tasks, where the big movement is a clear indicator of human activity such as in corridors.
+
+The limitations of the technology arise when it is deployed to other kinds of office scenarios. Without any additional logic, it often fails to detect presence in meeting rooms given the detectable movement is usually very limited during a conversation.
+This observation is usually compensated with long timeout values on the lighting control level, hoping that the sensor will pick up some movement in the given 15 or 30 minutes long window even in those situations. However, this approach leads to unnecessary extra energy consumption, since we have to wait at least 15 min for the light to turn off even if people left the meeting room, and discomfort due to false automatic behavior of luminaries.
+Moreover providing true occupancy data could help optimizing space usage and lead to smarter and more environmentally friendly HVAC (Heating, Ventilation and Air Conditioning) control solutions, compared to the current PIR-based approximations.
+
+The primary goal of the thesis is to explore novel approaches with the combination of sound and PIR sensors and machine learning techniques to improve the reliability of room occupancy detection and therefore reduce excess energy usage.
+
+
+% In this last paragraph, which is now just a sentence, add a hypothesis or expectation of results, and why those results are important. Or describing the same thing in a different way. Always construct arguments such that they contain why, what and how. Now you explain only what you will do, a bit of how you will do it is there as well, but the why is missing. You did explain the why in the previous paragraphs, but it should be connected explicitly to the goal of this thesis.
+
+\section{Structure of the Thesis}
+\label{section:structure} 
+
+%The structure of the thesis should help to present your merits: knowing the literature, understanding the theory, mastering the methods, and presenting the findings.
+
+% example structure:
+% 
+% - Introduction (e.g. 5 pages)
+% - Theory (10–15 pages)
+% - Methods and materials (10–15 pages)
+% - Analysis (15–20 pages)
+% - Discussion (5–10 pages)
+% - Conclusions (3–5 pages)
+
+
+%You should use transition in your text, meaning that you should help the reader follow the thesis outline. Here, you tell what will be in each chapter of your thesis. Often the thesis does not have as many chapters as is in this template. For example, environment and implementation can be combined as well as chapters of evaluation and discussion.  The rest of this thesis is organized as follows. Chapter~\ref{chapter:background} gives the background, etc.
+
+
+The Background chapter describes the recent findings of research areas closely related to the thesis topic such as Environmental Sound Classification, Voice Activity Detection, and Occupancy detection for indoor environments. Results of these papers support the understanding of the technologies used and the offered potential for the next advancements. After the general research overview, we will move to our specific case in Chapter 3 starting with the examination of input data used for machine learning purposes together with the theoretical explanation of key concepts in Digital Signal Processing needed to extract the most information possible. The next chapter starts with a high-level overview of currently popular machine learning tools with the focus of Deep learning model structures which are needed in the search for the best model for our purpose. The training procedure, effect of different model sizes, and prediction accuracy comparison will be presented. After experimenting with different model structures and hyper-parameter settings Chapter 5 offers a real-time embedded hardware implementation of the trained model with the sensors needed for data collection, while in the following chapter the test results of the deployed model are discussed with various performance measures. Finally, the thesis ends with the Conclusion part summarising shortly the research findings and offers promising ideas for future advancements of the project.
+
+
+
+
+%Chapter & Content
+%Background & Literature review
+%Environment &  Data used for ML
+%Methods &  ML models, comparison
+%Implementation & Model deployment to EDGE
+%Evaluation &  Test of the EDGE-AI, compare to ground-truth
+%Discussion  &
+%Conclusions   &
+
+
+
+
+
+
+
+
+
+
+

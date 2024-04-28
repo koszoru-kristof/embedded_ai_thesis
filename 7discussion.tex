@@ -1,0 +1,25 @@
+\chapter{Discussion and Future Work}
+\label{chapter:discussion}
+
+% Ath this point, you will have some insightful thoughts on your implementation and you may have ideas on what could be done in the future. This chapter may be combined together with the evaluation chapter. All the now insights and findings are given here! This chapter is a good place to discuss your thesis as a whole and to show your professor that you have really understood some non-trivial aspects of the methods you used.
+
+
+In this thesis, the application of machine learning on an embedded microcontroller was explored in the context of real-time presence detection and lighting automation. Although Convolutional Neural Networks combined with MFCC images have proven to be effective to spot human speech in the audio flow, and combined with PIR, a reliable multisensory device can be created, there are many alternative ways to improve or extend its capabilities.
+
+From an embedded Voice Activity Detector standpoint, further research is encouraged for experimenting with alternative model architectures. Our tests only involved FCN and CNN models, but as software support improves, and more advanced Neural Network building blocks become widely available, there is an expected improvement in model accuracy and performance. The branch of Recurrent Neural Network structures is one of the most promising future candidates for time-series data processing on pre-computed frequency features or the raw audio recording.
+
+
+Moreover, since the audio signal can be considered as a rich datasource, more complex models and hardware innovations could extract much more information than just the presence of speech. Promising future steps include people counting or crowd size estimation from one microphone source, or sound source localization by the application of a mic array.
+
+As in most Deep Learning applications, the dataset fundamentally determines the model capabilities, the variety and size of the training examples should not be a limiting factor during development. A more thorough analysis of the most common use cases and large-scale field data collection would be advisable for increased robustness. To reduce false-negative predictions during intervals without speech, additional data sources could be considered. Focusing on spotting keyboard typing and mouse clicking in the audio feed could significantly improve the overall lighting control policy, provided quality microphones and relatively low background noise in the selected rooms.  
+
+Furthermore, as previous research suggests, there are great added benefits employing one or multiple analog PIR sensors in the sensor network, as they give more accurate signal related to movement or number of occupants but require additional signal processing and data analysis, which was outside of the scope of the thesis.
+
+
+
+% JUHAA
+% finding the best model
+% - not only speech, but a model especially for keyboard typing
+
+% gray is more important than power saving, short meetings power saving long ones less false negatives
+% silence between speech to optimize the timeout value of the algorithm

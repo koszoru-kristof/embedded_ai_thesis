@@ -1,0 +1,49 @@
+\chapter{Conclusions}
+\label{chapter:conclusions}
+
+% Write down the most important findings from your work.
+% One to two (never over three) pages might be a good limit
+
+%LAURA
+% 9 should repeat the main results/achievements.  (Keep in mind that most people will first look at the abstract, then introduction & conclusions (or only conclusions) and only after that, have a look at the whole thing, if they think it’s worth the time.  )
+
+
+% TOOM NEW
+% The title and the text do not match; the text is a summary of what has been presented, whereas 'conclusions' suggests that this would summarize the outcomes "what was learned". 
+
+The combination of Mel Frequency Cepstral Coefficients and Artificial Neural Networks have been proven effective in many audio-related real-world scenarios, although real-time embedded execution was often limited by the increased computational complexity compared to traditional algorithms. 
+
+In this thesis, we have designed and implemented a prototype of a multisensory presence detection device based on sound and PIR information. The main contributions were the custom-designed machine learning-based algorithms used for audio feature extraction and classification both on desktop and embedded level and the sensor output fusion constructing a final prediction confidence value.
+
+In the development of the audio-based presence detector, the selection of the right feature set played a significant role in the efficient implementation and allowed the usage of smaller machine learning models. The computation of MFCC features is tailor-made for speech recognition purposes and has highly optimized library support for most platforms. Building on top of those features the machine learning model could be reduced to a single classifier structure. Additionally, audio data collected from different sources enhances the reliability of the system and reduces false positive predictions.
+
+In conclusion, as the test results demonstrates, audio-based presence detection has significant research and business potential especially when it is used with other sensors. Moreover, further exploration is encouraged to improve prediction accuracy by more reliable feature extraction or with the introduction of novel sensor inputs.
+
+% First, we have introduced the problem and motivated the need for innovation with the issues the industry is currently facing. This was followed by a short overview of the latest research in audio and PIR-based information processing and its usage in lighting automation.
+
+% Secondly, we have presented a theoretical basis for understanding the used technologies in the audio-based presence detection and implementation sections, namely the working principles of the PIR sensor, MFCC feature extraction, and the most common building blocks of modern Artificial Neural Networks.
+
+%In the Audio-based presence detection chapter, we have constructed a dataset for training using manual recording and external sources and demonstrated high accuracy models found in a grid search. The best-performing models were then selected for embedded implementation where a more thorough analysis of the computational and memory need was presented. The thesis gives a practical suggestion also for the different sensor output fusion by weighting them to strengthen the advantages of each in a State Machine model.
+
+% Finally, in the evaluation section, we have compared our newly proposed solution to the competition and measured the energy saving achieved by the multisensor solution.
+
+
+
+
+
+% LAURAA
+
+
+% First of all, I think the thesis is a bit on the long side, which I think you should keep in mind when making changes.  Especially I think that Chapters 1-4 take too much space while 8&9 could be longer
+
+% Especially when it comes to Chapter 1, I’d recommend you think which are the main 3 things you want the reader to remember from that part, and basically remove everything else.  (Actually, you could have the table of contents open and list the main 3 items for each chapter / subchapter, and then check how clearly those items stand out from your text, and if needed, reduce the less important parts so that the important is easier to see).
+
+% In Chapter 2, you should try to fit the intro to the chapter (before 2.1 begins) in one paragraph.  In my opinion, it is not necessary to discuss the contents of subsubchapters (2.1.x) in the opening.  
+% Contents of 3.1.1. would perhaps fit better in 2.1 because now you discuss PIR problems before telling much about what PIR is and how it works.  
+
+% The other thing is that the level of knowledge you assume from  the reader seems to vary.   You could have in mind some high-school friend maybe, who went to study something technical but not really computing/automation.  They should be able to follow your thesis.  Do they know what PIR is?  What do they know already of machine learning?  (Would they understand your explanation of these things?)
+
+% Then, I recommend spellchecking and grammar checking.  You seem to be leaving out quite often the main verb of the sentence (is, are, were, …) 
+
+
+% Overall, I would say the thesis looks good, but I think a more to-the-point opening would give a better first impression.
